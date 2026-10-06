@@ -1,0 +1,24 @@
+{
+  "rules": {
+    ".read": "auth != null",
+    ".write": "auth != null && auth.token.email == 'joszrank@gmail.com'",
+    "garaz": {
+      "wiertarka_stolowa": {
+        "commands": {
+          "$command": { ".validate": "$command.matches(/^(start|stop|powerOff)$/) && newData.isBoolean()" }
+        },
+        "settings": {
+          "direction": { ".validate": "newData.val() == 'right' || newData.val() == 'left'" },
+          "controlMode": { ".validate": "newData.val() == 'local' || newData.val() == 'remote'" },
+          "autostart": { ".validate": "newData.isBoolean()" },
+          "speedRaw": { ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 1000" }
+        },
+        "status": {
+          "online": { ".validate": "newData.isBoolean()" },
+          "running": { ".validate": "newData.isBoolean()" },
+          "lastSeen": { ".validate": "newData.isNumber()" }
+        }
+      }
+    }
+  }
+}

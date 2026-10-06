@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Sterowanie domem i garażem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+  <section id="login-view" class="login-shell">
+    <form id="login-form" class="login-card">
+      <div class="brand-mark">TS</div>
+      <p class="eyebrow">TECH STUDYCELL</p>
+      <h1>Panel sterowania</h1>
+      <p class="muted">Zaloguj się kontem Firebase.</p>
+      <label>E-mail<input id="email" type="email" autocomplete="username" required></label>
+      <label>Hasło<input id="password" type="password" autocomplete="current-password" required></label>
+      <button class="primary" type="submit">Zaloguj</button>
+      <p id="login-error" class="error" role="alert"></p>
+    </form>
+  </section>
+
+  <div id="app" class="app hidden">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark small">TS</span><div><strong>Tech StudyCell</strong><small>Panel sterowania</small></div></div>
+      <nav>
+        <button class="nav-main active" data-section="home">⌂ <span>Dom</span></button>
+        <button class="nav-main" data-section="garage">▣ <span>Garaż</span><b>1</b></button>
+      </nav>
+      <div id="room-nav" class="subnav"></div>
+      <div class="sidebar-bottom">
+        <div class="status-row"><span>Firebase</span><strong id="firebase-status" class="online">● online</strong></div>
+        <button id="logout" class="logout">Wyloguj</button>
+      </div>
+    </aside>
+
+    <main>
+      <header class="mobile-header"><strong>Tech StudyCell</strong><div><button data-mobile-section="home">Dom</button><button data-mobile-section="garage">Garaż</button></div></header>
+      <section id="home-section"></section>
+      <section id="garage-section" class="hidden"></section>
+    </main>
+  </div>
+
+  <script type="module" src="./assets/js/app.js"></script>
+</body>
+</html>
